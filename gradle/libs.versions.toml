@@ -1,0 +1,47 @@
+[versions]
+kotlin = "2.1.0"
+
+agp = "8.10.1"
+android-compileSdk = "35"
+android-minSdk = "24"
+android-targetSdk = "35"
+androidx-activityCompose = "1.10.1"
+
+composeMultiplatformVersion = "1.8.2"
+composeLifecycleVersion = "2.9.1"
+composeNavigationVersion = "2.9.0-beta03"
+koin = "4.1.0"
+
+# example of previous working versions
+#composeMultiplatformVersion = "1.8.0-alpha03"
+#composeLifecycleVersion = "2.9.0-alpha03"
+#composeNavigationVersion = "2.8.0-alpha13"
+#koin = "4.0.0"
+
+
+[libraries]
+# Compose Multiplatform
+compose-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "composeLifecycleVersion" }
+compose-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "composeLifecycleVersion" }
+compose-navigation = { group = "org.jetbrains.androidx.navigation", name = "navigation-compose", version.ref= "composeNavigationVersion"}
+
+# Android
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+
+# Koin
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
+koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
+
+[bundles]
+koin-compose = [
+    "koin-compose",
+    "koin-compose-viewmodel",
+]
+
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatformVersion" }
+composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
