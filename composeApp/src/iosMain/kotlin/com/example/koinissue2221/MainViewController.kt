@@ -6,7 +6,7 @@ import org.koin.dsl.module
 
 fun MainViewController() = ComposeUIViewController {
 //    val platformModule = remember { module {  } }
-//    App(platformModule = module {  })
+//    App(platformModule = platformModule)
     App()
 }
 
